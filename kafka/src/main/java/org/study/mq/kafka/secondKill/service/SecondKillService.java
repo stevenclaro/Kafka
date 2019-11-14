@@ -40,7 +40,13 @@ public class SecondKillService {
 
         /**
          * 将业务数据写入消息队列
+         * Json对象转换为String，然后在String调用序列化的方式。
+         * 也可以直接是new一个对象，然后
+         * // 将Java对象序列化为Json字符串
+         * 26         String objectToJson = JSON.toJSONString(initUser());
+         * 然后在  objectToJson.getBytes()
          */
+
         kafkaTemplate.send(Constants.TOPIC_SECOND_KILL, jsonObject.toJSONString());
 
         return true;

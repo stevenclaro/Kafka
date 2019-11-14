@@ -5,7 +5,7 @@ This is example for Kafka learning
 然后打开该文件，进行编辑。
 然后打开GitHub客户端，点击Change之后，然后进行Commit就上传到GitHUb了
 
-消息中间件
+消息中间件，要把3个内容全部准备好（zookeeper，kafka，Redis）
 准备Zookeeper，
 Zookeeper下载的地方
 http://zookeeper.apache.org/releases.html#download；
@@ -149,4 +149,16 @@ https://blog.csdn.net/shirukai/article/details/82152172
 当前最新的版本传上去的是，Report部分。
 所以访问的方式是http://localhost:8080/hello
 如果是秒杀的项目，那么就在web.xml中进行更换一个，在xml的配置文件中更换一下。就可以了。
+
+kafak
+    对象的序列化问题，转为2进制
+        那么对象可转为Json，然后将Json在转为String，然后从String转为二进制，这种方式是否是最简单方便的？
+    分包，粘包的解决方式
+
+    它不考虑粘包，分包。它不考虑包头的处理。与Netty中的Body是类似的，它仅仅考虑Body的编码及解码。针对包头的编解码由框架来实现。
+    正常的时候，如果在Body编码之后，应该调用框架的接口，把Body的长度传给框架，更新一下包的消息体长度，以便于粘包的解决。
+
+   在Netty的游戏中，我感觉，应该可以把各Body中的类，更换一种编码方式，不要自己单独编码，而是采用类转Json，然后根据String进行编码。这样会非常的省事。
+   观察一下，自动手动编码的方式，与这种编码的效率有多少差别？
+
 
